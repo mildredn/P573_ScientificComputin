@@ -1,0 +1,19 @@
+
+This directory shows a simple timer wrapper function and a sample main program that
+calls it, in C, C++, and Fortran. The C++ version calls a high-resolution clock if
+it is available; otherwise you're pointed to use gettimeofday(), which is available
+with any C distribution, but not always of good precision. In Linux available timers
+include time() [the function time(), not the command time], rtc, hwclock,
+gettimeofday, times, and getrusage.
+
+The wrapper function is named elapsedtime(), and it returns a double precision
+number giving the number of seconds since some event (start of the program, last
+reboot, 1 January 1970, my birthday, whatever). So as the name suggests, it is an
+elapsed timer, not a delta timer.
+
+The Fortran one has three options in the elapsedtime() function, but all three are
+specified by the language standard and so should be available with any
+standards-compliant compiler. It assumes Fortran 2008 is used. 
+
+The C version has five options, and must not be used without first reading all of
+the comments in the file - it cannot be used blindly.
